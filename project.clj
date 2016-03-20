@@ -11,7 +11,7 @@
                  [bk/ring-gzip "0.1.1"]
                  [ring.middleware.logger "0.5.0"]
                  [compojure "1.4.0"]
-                 [org.omcljs/om "1.0.0-alpha28"]
+                 [reagent "0.6.0-alpha"]
                  [environ "1.0.2"]]
 
   :plugins [[lein-cljsbuild "1.1.1"]

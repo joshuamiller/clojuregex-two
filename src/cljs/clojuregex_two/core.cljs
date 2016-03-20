@@ -1,18 +1,37 @@
 (ns clojuregex-two.core
-  (:require [om.core :as om :include-macros true]
-            [om.dom :as dom :include-macros true]))
+  (:require [reagent.core :as r]))
 
 (enable-console-print!)
 
-(defonce app-state (atom {:text "Hello Chestnut!"}))
+(defonce app-state (r/atom {:regex ""
+                            :test-string ""}))
 
-(defn root-component [app owner]
-  (reify
-    om/IRender
-    (render [_]
-      (dom/div nil (dom/h1 nil (:text app))))))
+(defn submit-regex []
+  (let [regex (.-value (.getElementById js/document "regex"))
+        string (.-value (.getElementById js/document "sample"))]
+    (swap! app-state assoc :regex regex :test-string string)))
 
-(om/root
- root-component
- app-state
- {:target (. js/document (getElementById "app"))})
+(defn cljs-results []
+  [:ol
+   (for [res (re-seq (re-pattern (:regex @app-state)) (:test-string @app-state))]
+     [:li res])])
+
+(defn regex-input []
+  [:div
+   [:label {:for "regex"} "Regular Expression"]
+   [:textarea {:name "regex" :placeholder "regex" :id "regex"}
+    (:regex @app-state)]])
+
+(defn sample-string-input []
+  [:div
+   [:label {:for "sample"} "Test String"]
+   [:textarea {:name "sample" :placeholder "sample" :id "sample"}
+    (:test-string @app-state)]
+   [:div {:class "submit"}
+    [:p
+     [:button {:id "submit"
+               :on-click submit-regex} "Test Regex"]]]])
+
+(r/render [cljs-results] (.getElementById js/document "cljs"))
+(r/render [regex-input] (.getElementById js/document "for-regex"))
+(r/render [sample-string-input] (.getElementById  js/document "for-sample"))
