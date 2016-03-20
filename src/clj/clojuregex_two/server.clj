@@ -9,7 +9,14 @@
             [ring.adapter.jetty :refer [run-jetty]])
   (:gen-class))
 
+(defn parse [{params :params}]
+  (clojure.tools.logging/info (re-pattern (:regex params)))
+  {:status 200
+   :headers {"Content-Type" "application/edn"}
+   :body (pr-str (re-seq (re-pattern (:regex params)) (:sample params)))})
+
 (defroutes routes
+  (GET "/regex" [] parse)
   (GET "/" _
     {:status 200
      :headers {"Content-Type" "text/html; charset=utf-8"}

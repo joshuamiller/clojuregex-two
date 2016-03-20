@@ -11,7 +11,9 @@
                  [bk/ring-gzip "0.1.1"]
                  [ring.middleware.logger "0.5.0"]
                  [compojure "1.4.0"]
+                 [com.cemerick/url "0.1.1"]
                  [reagent "0.6.0-alpha"]
+                 [cljs-ajax "0.5.4"]
                  [environ "1.0.2"]]
 
   :plugins [[lein-cljsbuild "1.1.1"]
