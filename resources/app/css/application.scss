@@ -1,5 +1,5 @@
-@import "bourbon/bourbon";
-@import "neat/neat";
+@import "bourbon";
+@import "neat";
 
 $brown: #362600;
 $green: #4a917f;
@@ -15,7 +15,7 @@ body {
 
     @include hidpi {
         @include background-image(url("/images/wavegrid_@2X.png"), linear-gradient(white 0, $yellow 50%, transparent 50%));
-    }    
+    }
 
     color: $green;
     font-size: $base-font-size;
@@ -33,7 +33,7 @@ section {
             @include span-columns(12);
             background-color: $red;
             border: 2px solid $purple;
-            
+
             h1 {
                 @include span-columns(8);
                 font-size: golden-ratio($base-font-size, 2);
@@ -70,11 +70,11 @@ section {
             padding: golden-ratio($base-font-size, -1);
         }
 
-        &#for-regex { 
-            @include span-columns(4); 
+        &#for-regex {
+            @include span-columns(4);
         }
-        &#for-sample { 
-            @include span-columns(8); 
+        &#for-sample {
+            @include span-columns(8);
         }
     }
     .controls {
@@ -101,11 +101,8 @@ section {
     }
 
     &.footer {
-        
         a, a:visited {
             color: $red;
         }
-        
-    }    
+    }
 }
-
