@@ -36,14 +36,21 @@
 (defn regex-input []
   [:div
    [:label {:for "regex"} "Regular Expression"]
-   [:textarea {:name "regex" :placeholder "regex" :id "regex"}
-    (:regex @app-state)]])
+   [:textarea {:name "regex"
+               :placeholder "regex"
+               :id "regex"
+               :default-value (:regex @app-state)}]
+   [:p
+    [:button {:id "copy" :data-clipboard-target "#regex"}
+     "Copy To Clipboard"]]])
 
 (defn sample-string-input []
   [:div
    [:label {:for "sample"} "Test String"]
-   [:textarea {:name "sample" :placeholder "sample" :id "sample"}
-    (:test-string @app-state)]
+   [:textarea {:name "sample"
+               :placeholder "sample"
+               :id "sample"
+               :default-value (:test-string @app-state)}]
    [:div {:class "submit"}
     [:p
      [:button {:id "submit"
