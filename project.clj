@@ -17,7 +17,8 @@
                  [environ "1.0.2"]]
 
   :plugins [[lein-cljsbuild "1.1.1"]
-            [lein-environ "1.0.1"]]
+            [lein-environ "1.0.1"]
+            [lein-sassy "1.0.7"]]
 
   :min-lein-version "2.5.3"
 
@@ -36,6 +37,9 @@
   ;; because that's where our development helper functions like (run) and
   ;; (browser-repl) live.
   :repl-options {:init-ns user}
+
+  :sass {:src "resources/app/css"
+         :dst "resources/public/css"}
 
   :cljsbuild {:builds
               {:app

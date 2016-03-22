@@ -88,7 +88,7 @@ section {
       width: 65.88078%; }
       section .controls#for-sample:last-child {
         margin-right: 0; }
-  section .submit button#submit {
+  section .controls button {
     font-size: 41.88678px;
     border: 1px solid #464948;
     border-color: #464948 #323e3c #223432;
@@ -108,7 +108,7 @@ section {
     text-decoration: none;
     text-shadow: 0 -1px 1px #3e514e;
     background-clip: padding-box; }
-    section .submit button#submit:hover:not(:disabled) {
+    section .controls button:hover:not(:disabled) {
       border: 1px solid #2f413c;
       border-color: #2f413c #1c3530 #0f2926;
       box-shadow: inset 0 1px 0 0 #509a87;
@@ -119,13 +119,13 @@ section {
       background-image: linear-gradient(#428272, #325a55);
       text-shadow: 0 -1px 1px #27443f;
       background-clip: padding-box; }
-    section .submit button#submit:active:not(:disabled) {
+    section .controls button:active:not(:disabled) {
       background: #43655f;
       border: 1px solid #172b28;
       border-bottom: 1px solid #132a29;
-      box-shadow: inset 0 0 6px 3px #244946, 0 1px 0 0 white;
+      box-shadow: inset 0 0 6px 3px #244946, 0 1px 0 0 #fff;
       text-shadow: 0 -1px 1px #2c423e; }
-    section .submit button#submit:disabled {
+    section .controls button:disabled {
       opacity: 0.5;
       cursor: not-allowed; }
   section .matches {

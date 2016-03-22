@@ -1,0 +1,111 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+$brown: #362600;
+$green: #4a917f;
+$yellow: #ffecb2;
+$purple: #bd8d89;
+$red: #b75d54;
+
+$base-font-size: 16px;
+
+body {
+
+    @include background-image(url("/images/wavegrid.png"), linear-gradient(white 0, $yellow 50%, transparent 50%));
+
+    @include hidpi {
+        @include background-image(url("/images/wavegrid_@2X.png"), linear-gradient(white 0, $yellow 50%, transparent 50%));
+    }    
+
+    color: $green;
+    font-size: $base-font-size;
+    font-family: $helvetica;
+}
+
+section {
+    @include outer-container;
+
+    margin-bottom: 15px;
+
+    &.header {
+        color: white;
+        .title {
+            @include span-columns(12);
+            background-color: $red;
+            border: 2px solid $purple;
+            
+            h1 {
+                @include span-columns(8);
+                font-size: golden-ratio($base-font-size, 2);
+                margin: golden-ratio($base-font-size, -1);
+            }
+            .explanation {
+                @include span-columns(4);
+                font-family: $monospace;
+                font-size: golden-ratio($base-font-size, -1);
+                margin-top: 40px;
+            }
+        }
+    }
+
+    .controls {
+        background-color: $purple;
+        border: 2px solid $red;
+        padding: golden-ratio($base-font-size, 1);
+        height: 250px;
+        label {
+            color: white;
+            display: block;
+            font-size: golden-ratio($base-font-size, 1);
+            font-family: $lucida-grande;
+        }
+        textarea {
+            font-family: $monospace;
+            background-color: $brown;
+            border: 0px;
+            color: white;
+            width: 90%;
+            height: $base-font-size * 6;
+            margin-top: golden-ratio($base-font-size, 1);
+            padding: golden-ratio($base-font-size, -1);
+        }
+
+        &#for-regex { 
+            @include span-columns(4); 
+        }
+        &#for-sample { 
+            @include span-columns(8); 
+        }
+    }
+    .controls {
+        button {
+            font-size: golden-ratio($base-font-size, 2);
+            @include button(pill, $green);
+        }
+    }
+
+    .matches {
+        @include span-columns(6);
+        background-color: $red;
+        border: 2px solid $purple;
+        color: white;
+        padding: golden-ratio($base-font-size, 1);
+        ol {
+            background-color: $brown;
+            li {
+                padding: golden-ratio($base-font-size, -1);
+                color: white;
+                font-family: $monospace;
+            }
+        }
+    }
+
+    &.footer {
+        
+        a, a:visited {
+            color: $red;
+        }
+        
+    }    
+}
+
